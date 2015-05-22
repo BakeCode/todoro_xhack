@@ -1,23 +1,23 @@
-/**
- * Created by denis on 22.05.15.
- */
-
 $(document).foundation();
 var i;
 function addTask() {
     text = $('#taskText').val();
     if (text != '') {
         $('#tasks').append(
-            '<li><a href="#" class="button" id="' + i +'">' + text + '</a></li >');
+            '<li><a href="#" class="button" id="' + i +'" onclick="openTask(event);">' + text + '</a></li >');
         i++;
-        $('#taskText').val(" ");
+        //clean input field
+        $('#taskText').val('');
     }
     else
         alert("Are you stupid?")
 
 }
-function openTask() {
+function openTask(event) {
+    var todoText = event.target.firstChild;
+    console.log(todoText);
     $('#page1').hide();
+    $('.footer').hide();
     $('#page2').show();
-    $('#page2').html($('#i').val());
+    $('#currentTask').html(todoText);
 }
