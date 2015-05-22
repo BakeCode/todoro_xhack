@@ -38,8 +38,14 @@
 	  var i;
 	  function addTask(){
 		  text = $('#taskText').val();
-		  $('#tasks').append('<li id="'+i+'">'+text+'</li>');
-		  i++;
+		  if(text != ''){
+			  $('#tasks').append('<li id="'+i+'">'+text+'</li>');
+			  i++;
+			  $('#taskText').val(" ");
+		  }
+		  else
+		  alert("Are you stupid?")
+
 	  }
 		function openTask(){
 
