@@ -20,11 +20,15 @@ $(document).ready(function() {
 
 });
 
+
+
 function addTask() {
     text = $('#taskText').val();
     if (text != '') {
         $('#tasks').append(
+
             '<li><a href="#" class="button" id="' + i + '" onclick="openTask(event);">' + text + '</a></li >');
+        todo.addItem(text);
         i++;
         //clean input field
         $('#taskText').val('');
