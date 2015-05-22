@@ -1,16 +1,4 @@
 footer {
     position: absolute;
     bottom: 0;
-
-}
-.list {
-    color: greenyellow;
-
-
-}
-
-.scroll {
-    overflow-y:auto;
-
-
 }

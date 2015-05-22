@@ -20,3 +20,29 @@ function openTask(event) {
     $('#page2').show();
     $('#currentTask').html(todoText);
 }
+
+//Timer 25:00
+
+var seconds = 1500;
+var countdownTimer;
+
+function secondPassed() {
+
+    var minutes = Math.round((seconds - 30)/60),
+        remainingSeconds = seconds % 60;
+
+    if (remainingSeconds < 10) {
+        remainingSeconds = "0" + remainingSeconds;
+    }
+
+    document.getElementById('countdown').innerHTML = minutes + ":" + remainingSeconds;
+    if (seconds == 0) {
+        clearInterval(countdownTimer);
+        document.getElementById('countdown').innerHTML = "00:00";
+    } else {
+        seconds--;
+    }
+}
+function startCycle(){
+    countdownTimer = setInterval('secondPassed()', 1000);
+}
