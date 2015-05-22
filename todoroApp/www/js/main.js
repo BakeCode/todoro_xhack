@@ -31,6 +31,7 @@ function backToList(){
 //Timer 25:00
 
 var seconds = 1500;
+var witdh = 0.75;
 var countdownTimer;
 
 function secondPassed() {
