@@ -1,24 +1,42 @@
 $(document).foundation();
 var i;
-$(document).ready(function() {
+var GlobalWriter;
 
-
+function parseFile() {
     $.get('todo.txt').done(function (data) {
         todo = TodoTxt.parseFile(data);
         list = todo.items.call();
 
 
-        for (task of list){
+        for (task of list) {
             $('#tasks').append(
-
                 '<li><a href="#" class="button" id="' + i + '" onclick="openTask(event);">' + task.textTokens().join(' ') + '</a></li >');
         }
 
     });
+}
 
+function onDeviceReady() {
+    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+}
 
+function gotFS(fileSystem) {
+    fileSystem.root.getFile("todo.txt", {create: true, exclusive: false}, gotFileEntry, fail);
+}
 
-});
+function gotFileEntry(fileEntry) {
+    fileEntry.createWriter(gotFileWriter, fail);
+}
+
+function gotFileWriter(writer) {
+    GlobalWriter = writer;
+    parseFile();
+}
+
+function fail(error) {
+    console.log(error.code);
+}
+
 
 function addTask() {
     text = $('#taskText').val();
@@ -103,3 +121,12 @@ function startStopCycle(boolToggle) {
     }
 
 }
+
+function appendTextToFile(task) {
+    GlobalWriter.onwrite = function(evt) {
+        console.log("write success");
+    };
+    GlobalWriter.seek(GlobalWriter.length);
+    GlobalWriter.write(task);
+};
+
