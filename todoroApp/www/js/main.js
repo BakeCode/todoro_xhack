@@ -1,5 +1,25 @@
 $(document).foundation();
 var i;
+$(document).ready(function() {
+
+
+    $.get('todo.txt').done(function (data) {
+        todo = TodoTxt.parseFile(data);
+        list = todo.items.call();
+
+
+        for (task of list){
+            $('#tasks').append(
+
+                '<li><a href="#" class="button" id="' + i + '" onclick="openTask(event);">' + task.textTokens().join(' ') + '</a></li >');
+        }
+
+    });
+
+
+
+});
+
 function addTask() {
     text = $('#taskText').val();
     if (text != '') {
@@ -38,6 +58,7 @@ function secondPassed() {
 
     var minutes = Math.round((seconds - 30) / 60),
         remainingSeconds = seconds % 60;
+
 
     if (remainingSeconds < 10) {
         remainingSeconds = "0" + remainingSeconds;
