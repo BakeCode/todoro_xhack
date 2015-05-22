@@ -14,8 +14,7 @@ function addTask() {
 
 }
 function openTask(event) {
-    var todoText = event.target.firstChild;
-    console.log(todoText);
+    var todoText = event.target.textContent;
     $('#page1').hide();
     $('.footer').hide();
     $('#page2').show();
