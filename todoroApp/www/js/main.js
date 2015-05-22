@@ -20,3 +20,9 @@ function openTask(event) {
     $('#page2').show();
     $('#currentTask').html(todoText);
 }
+
+function backToList(){
+    $('#page2').hide();
+    $('#page1').show();
+    $('.footer').show();
+}
