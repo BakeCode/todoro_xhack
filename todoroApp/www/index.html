@@ -1,63 +1,70 @@
 <!doctype html>
 <html class="no-js" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Foundation | Welcome</title>
-    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/foundation.css"/>
     <script src="js/vendor/modernizr.js"></script>
-  </head>
-  <body>
-	<div id="page1">
-		<h1 class="title">Todoro App</h1>
-		<div class="row">
-			<div class="small-10 large-8 columns"><input type="text" placeholder="write your tasks down!" id="taskText" ></div>
-			<div class="small-2 large-8 columns"><a href="#" class="button tiny" onclick="addTask()" >+</a></div>
-		</div>
+</head>
+<body>
 
-		<div>
-			<ul id="tasks" onclick="openTask();">
-			</ul>
-		</div>
-
-	</div>
-	<div id="page2" hidden>
-		<h1 class="title">Task content</h1>
-		<textarea id="text"></textarea>
-		<div id="pomodoroScope">
-			<div id="pomodoroAnimation">
-
-			</div>
-			<div id="podoroFooter">
-
-			</div>
-		</div>
-	</div>
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/foundation.min.js"></script>
-    <script>
-      $(document).foundation();
-	  var i;
-	  function addTask(){
-		  text = $('#taskText').val();
-		  if(text != ''){
-			  $('#tasks').append('<li id="'+i+'">'+text+'</li>');
-			  i++;
-			  $('#taskText').val(" ");
-		  }
-		  else
-		  alert("Are you stupid?")
-
-	  }
-		function openTask(){
-
-			$('#page1').hide();
-			$('#page2').show();
-			$('#page2').html($('#i').val());
-		}
+<div id="page1">
+    <h1 class="title">Todoro App</h1>
 
 
 
-    </script>
-  </body>
+    <div>
+        <ul id="tasks" onclick="openTask();">
+        </ul>
+    </div>
+
+</div>
+<div id="page2" hidden>
+    <h1 class="title">Task content</h1>
+    <textarea id="text"></textarea>
+
+    <div id="pomodoroScope">
+        <div id="pomodoroAnimation">
+
+        </div>
+        <div id="podoroFooter">
+
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <div class="row">
+        <div class="small-10 large-8 columns"><input type="text" placeholder="write your tasks down!" id="taskText">
+        </div>
+        <div class="small-2 large-8 columns"><a href="#" class="button tiny" onclick="addTask()">+</a></div>
+    </div>
+</footer>
+<script src="js/vendor/jquery.js"></script>
+<script src="js/foundation.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+    $(document).foundation();
+    var i;
+    function addTask() {
+        text = $('#taskText').val();
+        if (text != '') {
+            $('#tasks').append('<li id="' + i + '">' + text + '</li>');
+            i++;
+            $('#taskText').val(" ");
+        }
+        else
+            alert("Are you stupid?")
+
+    }
+    function openTask() {
+
+        $('#page1').hide();
+        $('#page2').show();
+        $('#page2').html($('#i').val());
+    }
+
+
+</script>
+</body>
 </html>
