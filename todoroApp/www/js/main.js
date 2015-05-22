@@ -52,17 +52,18 @@ function secondPassed() {
     }
 }
 
-function startCycle(event, boolToggle) {
-    var button = $('#startbuuton');
+function startStopCycle(boolToggle) {
+    var button = $('#startbutton');
     if (boolToggle) {
-        button.attr('onclick', false);
-        button.addClass('alert');
-        button.removeClass('primary');
+        button.attr('onclick', 'startStopCycle(false)');
+        button.removeClass('primary').addClass('alert');
         countdownTimer = setInterval('secondPassed()', 1000);
     }
     else {
-        button.attr('onclick', true);
+        button.attr('onclick', 'startStopCycle(true)');
         clearInterval(countdownTimer);
+        button.addClass('primary');
+        button.removeClass('alert');
     }
 
 }
