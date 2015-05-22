@@ -12,25 +12,26 @@
 
 <div id="page1" class="row">
     <h1 class="title">Todoro App</h1>
-    <input class="file" type="file" id="FileUpload">
     <div class="small-10 large-10 column">
-       <ul class="stack button-group" id="tasks">
+        <ul class="stack button-group scroll" id="tasks">
         </ul>
     </div>
 </div>
 <div id="page2" class="row" hidden>
     <h1 class="title">Current Task</h1>
-<div class="small-10 large-10 column progress radius round alert">
-    <span id="currentTask" class="meter" style="width: 0%"></span>
-</div>
+
+    <div class="small-8 large-8 column progress radius round alert">
+        <span id="currentTask" class="meter" style="width: 0%"></span>
+        <a href="#" class="button column small-2 large-2 primary tiny startStopButton radius round" id='startbutton'
+           onclick="startStopCycle(true)">Start</a>
+    </div>
     <div id="pomodoroScope">
         <div id="pomodoroAnimation">
             <!--<time id="countdown">25:00</time>-->
         </div>
 
         <div class="row">
-            <a href="#" class="button primary tiny startStopButton radius round" id='startbutton' onclick="startStopCycle(true)">Start</a>
-        <a href="#" class="button small-10" onclick="backToList()">Back</a>
+            <a href="#" class="button small-10" onclick="backToList()">Back</a>
 
         </div>
     </div>
@@ -38,7 +39,8 @@
 
 <footer class="footer">
     <div class="row">
-        <div class="small-10 medium-10 large-10 columns"><input type="text" placeholder="write your tasks down!" id="taskText">
+        <div class="small-10 medium-10 large-10 columns"><input type="text" placeholder="write your tasks down!"
+                                                                id="taskText">
         </div>
         <div class="small-2 large-2 medium-2 columns"><a href="#" class="button tiny" onclick="addTask()">+</a></div>
     </div>

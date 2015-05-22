@@ -1,5 +1,8 @@
 footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
+}
+.scroll{
+    overflow-y: scroll;
 }
 
