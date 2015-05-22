@@ -10,14 +10,16 @@
   <body>
 	<div id="page1">
 		<h1 class="title">Todoro App</h1>
-		<div class="row collapse">
-			<input type="text" placeholder="write your tasks down!" id="taskText" style="width: 70%; ">
-			<a href="#" class="button small" onclick="addTask()" style="width: 20%">Add</a>
+		<div class="row">
+			<div class="small-10 large-8 columns"><input type="text" placeholder="write your tasks down!" id="taskText" ></div>
+			<div class="small-2 large-8 columns"><a href="#" class="button tiny" onclick="addTask()" >+</a></div>
 		</div>
+
 		<div>
 			<ul id="tasks" onclick="openTask();">
 			</ul>
 		</div>
+
 	</div>
 	<div id="page2" hidden>
 		<h1 class="title">Task content</h1>
