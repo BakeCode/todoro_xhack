@@ -4,7 +4,7 @@ function addTask() {
     text = $('#taskText').val();
     if (text != '') {
         $('#tasks').append(
-            '<li><a href="#" class="button" id="' + i +'" onclick="openTask(event);">' + text + '</a></li >');
+            '<li><a href="#" class="button" id="' + i + '" onclick="openTask(event);">' + text + '</a></li >');
         i++;
         //clean input field
         $('#taskText').val('');
@@ -22,7 +22,7 @@ function openTask(event) {
 }
 
 
-function backToList(){
+function backToList() {
     $('#page2').hide();
     $('#page1').show();
     $('.footer').show();
@@ -35,30 +35,33 @@ var countdownTimer;
 
 function secondPassed() {
 
-    var minutes = Math.round((seconds - 30)/60),
+    var minutes = Math.round((seconds - 30) / 60),
         remainingSeconds = seconds % 60;
 
     if (remainingSeconds < 10) {
         remainingSeconds = "0" + remainingSeconds;
     }
 
-    document.getElementById('start').innerHTML = minutes + ":" + remainingSeconds;
+    $('#startbutton').html(minutes + ":" + remainingSeconds);
     if (seconds == 0) {
         clearInterval(countdownTimer);
-        document.getElementById('countdown').innerHTML = "00:00";
+        $('#startbutton').html("00:00");
     } else {
         seconds--;
     }
 }
 
-function startCycle(){
-    $('#startbutton').hide();
-    $('#stopbutton').show();
+function startCycle(event, boolToggle) {
+    var button = $('#startbuuton');
+    if (boolToggle) {
+        button.attr('onclick', false);
+        button.addClass('alert');
+        button.removeClass('primary');
         countdownTimer = setInterval('secondPassed()', 1000);
-}
+    }
+    else {
+        button.attr('onclick', true);
+        clearInterval(countdownTimer);
+    }
 
-function stopCycle(){
-    clearInterval(countdownTimer);
-    $('#stopbutton').hide()
-    $('#startbutton').show();
 }
