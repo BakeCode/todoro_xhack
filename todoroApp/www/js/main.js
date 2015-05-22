@@ -43,7 +43,7 @@ function secondPassed() {
         remainingSeconds = "0" + remainingSeconds;
     }
 
-    document.getElementById('countdown').innerHTML = minutes + ":" + remainingSeconds;
+    document.getElementById('start').innerHTML = minutes + ":" + remainingSeconds;
     if (seconds == 0) {
         clearInterval(countdownTimer);
         document.getElementById('countdown').innerHTML = "00:00";
@@ -51,7 +51,15 @@ function secondPassed() {
         seconds--;
     }
 }
+
 function startCycle(){
-    countdownTimer = setInterval('secondPassed()', 1000);
+    $('#startbutton').hide();
+    $('#stopbutton').show();
+        countdownTimer = setInterval('secondPassed()', 1000);
 }
 
+function stopCycle(){
+    clearInterval(countdownTimer);
+    $('#stopbutton').hide()
+    $('#startbutton').show();
+}

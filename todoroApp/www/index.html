@@ -24,14 +24,14 @@
 </div>
     <div id="pomodoroScope">
         <div id="pomodoroAnimation">
-            <time id="countdown">25:00</time>
-
+            <!--<time id="countdown">25:00</time>-->
         </div>
 
         <div id="pomdoroFooter row">
-            <a href="#" class="button tiny" onclick="startCycle()">Start</a>
-<a href="#" class="button small-10" onclick="backToList()">Back</a>
-            
+            <a href="#" class="button tiny startStopButton" id='startbutton' onclick="startCycle()">Start</a>
+            <a href="#" class="button alert tiny" startStopButton id='stopbutton' onclick="stopCycle()" hidden>Stop</a>
+        <a href="#" class="button small-10" onclick="backToList()">Back</a>
+
         </div>
     </div>
 </div>
