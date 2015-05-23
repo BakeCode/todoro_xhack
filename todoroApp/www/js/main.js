@@ -2,6 +2,29 @@ $(document).foundation();
 var i;
 var GlobalWriter;
 
+$(document).ready(function(){
+
+    localStorage.setItem('0',"cooking");
+    localStorage.setItem('1',"learn python");
+    localStorage.setItem('2',"read a book");
+    localStorage.setItem('3',"do s.th");
+    localStorage.setItem('4',"do anything else");
+    i = 5;
+
+    for (var i = 0; i < localStorage.length; i++){
+        $('#tasks').append(
+            '<li><a href="#" class="button" id="' + i + '" onclick="openTask(event);">' + localStorage.getItem(localStorage.key(i)) + '</a></li >'
+
+        );
+    }
+    onDeviceReady();
+
+
+
+
+
+});
+
 function parseFile() {
     $.get('todo.txt').done(function (data) {
         todo = TodoTxt.parseFile(data);
@@ -12,6 +35,7 @@ function parseFile() {
             $('#tasks').append(
                 '<li><a href="#" class="button" id="' + i + '" onclick="openTask(event);">' + task.textTokens().join(' ') + '</a></li >');
         }
+
 
     });
 }
@@ -46,8 +70,10 @@ function addTask() {
         $('#tasks').append(
 
             '<li><a href="#" class="button" id="' + i + '" onclick="openTask(event);">' + text + '</a></li >');
+            localStorage.setItem(i, text);
         todo.addItem(text);
         i++;
+        localStorage.setItem("i", i);
         //clean input field
         $('#taskText').val('');
     }
@@ -126,11 +152,12 @@ function startStopCycle(boolToggle) {
 
 }
 
+
 function appendTextToFile(task) {
     GlobalWriter.onwrite = function(evt) {
         console.log("write success");
     };
     GlobalWriter.seek(GlobalWriter.length);
     GlobalWriter.write(task);
-};
+}
 
