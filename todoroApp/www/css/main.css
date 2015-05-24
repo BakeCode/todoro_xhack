@@ -1,3 +1,7 @@
+body{
+    background-color: #cccccc;
+}
+
 footer {
     position: fixed;
     bottom: 0;

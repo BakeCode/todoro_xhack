@@ -3,11 +3,11 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Foundation | Welcome</title>
+    <title>Todoro</title>
     <link rel="stylesheet" href="css/foundation.css"/>
     <link rel="stylesheet" href="css/main.css"/>
     <script src="js/vendor/modernizr.js"></script>
-    <script type="text/javascript" charset="utf-8" src="cordova-5.0.0.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
     <script src="js/main.js"></script>
@@ -29,22 +29,19 @@
         </ul>
     </div>
 </div>
-<div id="page2" class="row" hidden>
+<div id="page2" hidden>
+    <div class="row">
     <h1 class="title" id="currentTask">Current Task</h1>
     <div class="small-8 large-8 column progress radius round alert" style="height: 40px;">
         <span class="meter radius round" style="width: 0%"></span>
     </div>
     <a href="#" class="button column small-2 large-2 primary tiny startStopButton radius round" id='startbutton'
        onclick="startStopCycle(true)">Start</a>
-
-    <div id="pomodoroScope">
-        <div id="pomodoroAnimation">
-            <!--<time id="countdown">25:00</time>-->
-        </div>
+    </div>
 
         <div class="row">
-            <a href="#" class="button small-10" onclick="backToList()">Back</a>
-
+            <span class="large-1 small-1 column" id="counter">0</span>
+            <a href="#" class="button large-7 small-7 column"  onclick="backToList()">Back</a>
         </div>
     </div>
 </div>

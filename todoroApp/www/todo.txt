@@ -1,4 +1,6 @@
-(A) Coding und so weiter @TH +todoro
-(B) KACKEN @klo
-schlafen
-x parser
+(A) Coden und so weiter @TH +todoro
+(B) Essen
+(C) Koten @klo
+(D) Beer
+(R) go Home you are Drunk
+x schlafen
